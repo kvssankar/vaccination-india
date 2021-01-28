@@ -43,11 +43,30 @@ var contactSchema = new mongoose.Schema({
   email: String,
 });
 
+var shareSchema = new mongoose.Schema({
+  email: String,
+  name: String,
+  subject: String,
+  message: String,
+});
+
 var contact = mongoose.model("contacts", contactSchema);
+var share = mongoose.model("share", shareSchema);
 
 app.post("/subscribe", async (req, res) => {
   const c = new contact({
     email: req.body.email,
+  });
+  await c.save();
+  res.redirect("/");
+});
+
+app.post("/share", async (req, res) => {
+  const c = new share({
+    email: req.body.email,
+    name: req.body.name,
+    subject: req.body.subject,
+    message: req.body.message,
   });
   await c.save();
   res.redirect("/");
