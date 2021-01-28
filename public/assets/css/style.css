@@ -797,7 +797,8 @@ section {
 }
 
 .about .video-box {
-  background: url("../img/about.png") center center no-repeat;
+  background: url("https://i.ytimg.com/vi/WL1Jm_aNwkc/maxresdefault.jpg") center
+    center no-repeat;
   background-size: contain;
   min-height: 300px;
 }
@@ -1031,7 +1032,8 @@ section {
 --------------------------------------------------------------*/
 .testimonials {
   padding: 80px 0;
-  background: url("../img/cta-bg.jpg") no-repeat;
+  background: url("https://ichef.bbci.co.uk/news/976/cpsprodpb/10C8F/production/_116615786_mediaitem116615784.jpg")
+    no-repeat;
   background-position: center center;
   background-size: cover;
   position: relative;
@@ -1327,27 +1329,27 @@ section {
 /*--------------------------------------------------------------
 # F.A.Q
 --------------------------------------------------------------*/
-.faq .faq-list {
+.faq-list {
   padding: 0;
 }
 
-.faq .faq-list ul {
+.faq-list ul {
   padding: 0;
   list-style: none;
 }
 
-.faq .faq-list li + li {
+.faq-list li + li {
   margin-top: 15px;
 }
 
-.faq .faq-list li {
+.faq-list li {
   padding: 20px;
   background: #fff;
   border-radius: 4px;
   position: relative;
 }
 
-.faq .faq-list a {
+.faq-list a {
   display: block;
   position: relative;
   font-family: "Poppins", sans-serif;
@@ -1359,7 +1361,7 @@ section {
   cursor: pointer;
 }
 
-.faq .faq-list .icon-help {
+.faq-list .icon-help {
   font-size: 24px;
   position: absolute;
   right: 0;
@@ -1367,41 +1369,41 @@ section {
   color: #34e5a6;
 }
 
-.faq .faq-list .icon-show,
-.faq .faq-list .icon-close {
+.faq-list .icon-show,
+.faq-list .icon-close {
   font-size: 24px;
   position: absolute;
   right: 0;
   top: 0;
 }
 
-.faq .faq-list p {
+.faq-list p {
   margin-bottom: 0;
   padding: 10px 0 0 0;
 }
 
-.faq .faq-list .icon-show {
+.faq-list .icon-show {
   display: none;
 }
 
-.faq .faq-list a.collapsed {
+.faq-list a.collapsed {
   color: #343a40;
 }
 
-.faq .faq-list a.collapsed:hover {
+.faq-list a.collapsed:hover {
   color: #1acc8d;
 }
 
-.faq .faq-list a.collapsed .icon-show {
+.faq-list a.collapsed .icon-show {
   display: inline-block;
 }
 
-.faq .faq-list a.collapsed .icon-close {
+.faq-list a.collapsed .icon-close {
   display: none;
 }
 
 @media (max-width: 1200px) {
-  .faq .faq-list {
+  .faq-list {
     padding: 0;
   }
 }
