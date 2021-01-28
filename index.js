@@ -43,7 +43,7 @@ var contactSchema = new mongoose.Schema({
   email: String,
 });
 
-var contact = mongoose.model("contact", contactSchema);
+var contact = mongoose.model("contacts", contactSchema);
 
 app.post("/subscribe", async (req, res) => {
   const c = new contact({
