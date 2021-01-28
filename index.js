@@ -47,6 +47,6 @@ app.get("/data", (req, res) => {
   res.json(data);
 });
 
-app.listen(4000, () => {
+app.listen(process.env.PORT || 4000, () => {
   console.log("working");
 });
