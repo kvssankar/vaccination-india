@@ -2,27 +2,12 @@ const { default: axios } = require("axios");
 const express = require("express");
 const app = express();
 const fs = require("fs");
+const mongoose = require("mongoose");
 
-// var cron = require('node-cron');
-
-// cron.schedule('*/10 * * * *', () => {
-//   console.log("Cron")
-//   axios
-//     .get("https://covid.ourworldindata.org/data/owid-covid-data.json")
-//     .then((data) => {
-//       fs.writeFile(path.join(__dirname,"/public/data1.json"), data, (err) => {
-//         if (err) {
-//             throw err;
-//         }
-//         console.log("JSON data is saved.");
-//     });
-//       res.send(data.data.IND);
-//     })
-//     .catch((err) => console.log(err));
-// }, {
-//   scheduled: true,
-//   timezone: "Asia/Kolkata"
-// });
+const NewsAPI = require("newsapi");
+const newsapi = new NewsAPI("ac3c8073cbf2496b9690365f1b96c877");
+// To query /v2/top-headlines
+// All options passed to topHeadlines are optional, but you need to include at least one of them
 
 app.use(express.json());
 app.use(
@@ -45,6 +30,44 @@ app.get("/data", (req, res) => {
   let rawdata = fs.readFileSync(__dirname + "/public/assets/data.json");
   let data = JSON.parse(rawdata);
   res.json(data);
+});
+
+const db = process.env.mongouri;
+
+const connect = mongoose
+  .connect(db, { useFindAndModify: false })
+  .then(() => console.log("Mondo db connected...."))
+  .catch((err) => console.log(err));
+
+var contactSchema = new mongoose.Schema({
+  email: String,
+});
+
+var contact = mongoose.model("contact", contactSchema);
+
+app.post("/subscribe", async (req, res) => {
+  await contact.create({ email: req.body.email });
+  res.sendFile(__dirname + "/index.html");
+});
+
+app.get("/new", (req, res) => {
+  newsapi.v2
+    .topHeadlines({
+      q: "vaccination",
+      category: "health",
+      language: "en",
+      country: "in",
+    })
+    .then((response) => {
+      console.log(response);
+      res.send(response);
+      /*
+      {
+        status: "ok",
+        articles: [...]
+      }
+    */
+    });
 });
 
 app.listen(process.env.PORT || 4000, () => {
