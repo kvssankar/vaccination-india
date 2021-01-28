@@ -47,7 +47,7 @@ var contact = mongoose.model("contact", contactSchema);
 
 app.post("/subscribe", async (req, res) => {
   await contact.create({ email: req.body.email });
-  res.sendFile(__dirname + "/index.html");
+  res.redirect("/");
 });
 
 app.get("/new", (req, res) => {
