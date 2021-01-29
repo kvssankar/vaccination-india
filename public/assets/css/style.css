@@ -90,8 +90,8 @@ h6 {
 .back-to-top {
   position: fixed;
   display: none;
-  right: 15px;
-  bottom: 15px;
+  right: 30px;
+  bottom: 105px;
   z-index: 99999;
 }
 
@@ -519,6 +519,9 @@ h6 {
 @media (max-width: 575px) {
   #hero .hero-img img {
     width: 80%;
+  }
+  .robo .robo-present {
+    display: none;
   }
 }
 
